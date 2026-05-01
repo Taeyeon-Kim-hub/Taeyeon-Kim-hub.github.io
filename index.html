@@ -108,6 +108,34 @@
         .folder-list li a:hover {
             color: #3498db;
         }
+
+        /* --- 여기서부터 이번에 새로 추가된 디자인 코드입니다 --- */
+        .project-folder {
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .folder-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2c3e50;
+            cursor: pointer; /* 마우스를 올리면 손가락 모양으로 바뀜 */
+            padding: 0.8rem 0;
+            line-height: 1.4;
+        }
+        
+        .folder-title:hover {
+            color: #3498db;
+        }
+
+        .folder-content {
+            padding: 1rem 0;
+            border-top: 1px dashed #cccccc;
+        }
+        /* ---------------------------------------------------- */
     </style>
 </head>
 <body>
@@ -116,9 +144,8 @@
         
         <!-- 왼쪽: 사이드바 영역 -->
         <aside class="sidebar">
-            <!-- 이미지 태그: 나중에 src="사진이름.jpg" 로 변경하면 사진이 뜹니다. -->
             <img src="profile.jpg" alt="프로필 사진" class="profile-img">
-            <h2>자원학실험실 연구원</h2>
+            <h2>Taeyeon Kim</h2>
             <p>Master's student<br>Pukyong National University</p>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 1.5rem 0;">
             <p style="text-align: left; font-size: 0.9em;">
@@ -130,31 +157,40 @@
         <!-- 오른쪽: 메인 콘텐츠 영역 -->
         <main class="main-content">
             
-            <!-- 첫 번째 박스: 인사말 및 소개 (README 내용) -->
+            <!-- 첫 번째 박스: 인사말 및 소개 (연구원님 원본 그대로 유지) -->
             <div class="content-box">
                 <h3>👋 About Me</h3>
                 <p><strong>안녕하세요! 저는 부경대학교 해양생물학과 자원학실험실에서 석사과정을 진행하고 있습니다.</strong><br>
                 <em>I am a Master's student in the Resource Biology Lab, Department of Marine Biology at Pukyong National University.</em></p>
-                
-                <ul class="info-list">
-                    <li><strong>통계적 모델링:</strong> TMB 기반의 모델링, 베이지안 추론, 그리고 Dirichlet 다항 분포를 적용한 정밀한 수산 데이터 분석</li>
-                    <li><strong>공간 데이터 분석:</strong> R의 <code>sf</code> 패키지 등을 활용하여 해역별 자원 공간 데이터를 조작하고 시각화</li>
-                    <li><strong>자원 평가:</strong> 역 연령-체장 키 산출 등을 통한 수산 자원 평가 및 관리 방안 연구</li>
-                </ul>
             </div>
 
             <!-- 두 번째 박스: Research 및 논문 -->
             <div class="content-box">
                 <h3>🔬 Research & Projects</h3>
-                <h4 style="color: #2c3e50; font-size: 1.2em; line-height: 1.4;">Incorporation of spatio-temporal variability in Korean chub mackerel (Scomber japonicus) population to the stock assessment</h4>
-                <p>본 논문과 관련된 분석 데이터 및 소스 코드를 아래에서 확인할 수 있습니다.</p>
                 
-                <!-- 논문 관련 폴더 목록 -->
-                <ul class="folder-list">
-                    <li><a href="#">Data</a></li>
-                    <li><a href="#">GMM code</a></li>
-                    <li><a href="#">State-space age structure model</a></li>
-                </ul>
+                <!-- 열고 닫을 수 있는 폴더 기능 시작 -->
+                <details class="project-folder">
+                    
+                    <!-- 클릭하는 제목 부분 -->
+                    <summary class="folder-title">
+                        📘 Incorporation of spatio-temporal variability in Korean chub mackerel (Scomber japonicus) population to the stock assessment
+                    </summary>
+                    
+                    <!-- 열렸을 때 보이는 내용물 부분 -->
+                    <div class="folder-content">
+                        <p style="margin-top:0;">본 논문과 관련된 분석 데이터 및 소스 코드를 아래에서 확인할 수 있습니다.</p>
+                        
+                        <!-- 논문 관련 폴더 목록 -->
+                        <ul class="folder-list">
+                            <li><a href="#">Data</a></li>
+                            <li><a href="#">GMM code</a></li>
+                            <li><a href="#">State-space age structure model</a></li>
+                        </ul>
+                    </div>
+
+                </details>
+                <!-- 폴더 기능 끝 -->
+
             </div>
 
         </main>
