@@ -3,46 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantitative Fisheries Management</title>
     <style>
-        /* 웹사이트의 디자인을 꾸미는 영역입니다. */
+        /* 기본 배경과 폰트 설정 */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333333;
+            font-family: 'Malgun Gothic', Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
             margin: 0;
             padding: 0;
         }
-        header {
-            background-color: #2c3e50;
-            color: #ffffff;
-            padding: 2.5rem;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.2em;
-        }
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
+
+        /* 화면을 좌우로 나누는 핵심 레이아웃 설정 (Flexbox) */
+        .layout-container {
+            display: flex;
+            max-width: 1100px;
+            margin: 3rem auto;
             padding: 0 1.5rem;
+            gap: 2rem; /* 왼쪽과 오른쪽 사이의 간격 */
         }
-        .paper-box {
+
+        /* 왼쪽 프로필 사이드바 디자인 */
+        .sidebar {
+            width: 300px;
             background-color: #ffffff;
-            border: 1px solid #dddddd;
-            border-radius: 8px;
             padding: 2rem;
+            border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            height: fit-content; /* 내용물만큼만 높이 차지 */
         }
-        .paper-title {
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            background-color: #e0e0e0; /* 사진이 없을 때 회색 배경 */
+            border-radius: 50%; /* 동그랗게 만들기 */
+            object-fit: cover;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+        }
+
+        .sidebar h2 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+
+        .sidebar p {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 오른쪽 메인 콘텐츠 영역 디자인 */
+        .main-content {
+            flex: 1; /* 남은 공간을 모두 차지함 */
+        }
+
+        /* 오른쪽 영역 안의 각각의 하얀색 박스들 */
+        .content-box {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .content-box h3 {
             color: #2980b9;
-            font-size: 1.4em;
             margin-top: 0;
-            line-height: 1.4;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
         }
+
+        /* 리스트(관심분야 등) 꾸미기 */
+        .info-list {
+            line-height: 1.8;
+            padding-left: 1.2rem;
+        }
+
+        .info-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 폴더 목록 디자인 (이전과 동일) */
         .folder-list {
-            list-style-type: none; /* 기본 점 기호를 없앱니다. */
+            list-style-type: none;
             padding: 0;
             margin-top: 1.5rem;
         }
@@ -53,38 +98,67 @@
             border-radius: 5px;
             font-weight: bold;
         }
-        /* 각 항목 이름 앞에 폴더 모양 기호를 추가합니다. */
         .folder-list li::before {
             content: "📁 "; 
         }
         .folder-list li a {
-            text-decoration: none; /* 링크의 밑줄을 없앱니다. */
+            text-decoration: none;
             color: #2c3e50;
         }
         .folder-list li a:hover {
-            color: #3498db; /* 마우스를 올렸을 때 색상이 변합니다. */
+            color: #3498db;
         }
     </style>
 </head>
 <body>
-    <!-- 웹사이트에 실제로 보이는 내용입니다. -->
-    <header>
-        <h1>Quantitative Fisheries Management</h1>
-    </header>
 
-    <div class="container">
-        <!-- 논문과 자료를 담는 상자입니다. -->
-        <div class="paper-box">
-            <h2 class="paper-title">Incorporation of spatio-temporal variability in Korean chub mackerel (Scomber japonicus) population to the stock assessment</h2>
-            <p>본 논문과 관련된 분석 데이터 및 소스 코드를 아래에서 확인할 수 있습니다.</p>
+    <div class="layout-container">
+        
+        <!-- 왼쪽: 사이드바 영역 -->
+        <aside class="sidebar">
+            <!-- 이미지 태그: 나중에 src="사진이름.jpg" 로 변경하면 사진이 뜹니다. -->
+            <img src="" alt="프로필 사진" class="profile-img">
+            <h2>자원학실험실 연구원</h2>
+            <p>Master's student<br>Pukyong National University</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 1.5rem 0;">
+            <p style="text-align: left; font-size: 0.9em;">
+                <strong>Email:</strong> qkaydi87@naver.com<br><br>
+                <strong>Location:</strong> Busan, Republic of Korea
+            </p>
+        </aside>
+
+        <!-- 오른쪽: 메인 콘텐츠 영역 -->
+        <main class="main-content">
             
-            <!-- 폴더 목록을 만듭니다. -->
-            <ul class="folder-list">
-                <li><a href="#">Data</a></li>
-                <li><a href="#">GMM code</a></li>
-                <li><a href="#">State-space age structure model</a></li>
-            </ul>
-        </div>
+            <!-- 첫 번째 박스: 인사말 및 소개 (README 내용) -->
+            <div class="content-box">
+                <h3>👋 About Me</h3>
+                <p><strong>안녕하세요! 저는 부경대학교 해양생물학과 자원학실험실에서 석사과정을 진행하고 있습니다.</strong><br>
+                <em>I am a Master's student in the Resource Biology Lab, Department of Marine Biology at Pukyong National University.</em></p>
+                
+                <ul class="info-list">
+                    <li><strong>통계적 모델링:</strong> TMB 기반의 모델링, 베이지안 추론, 그리고 Dirichlet 다항 분포를 적용한 정밀한 수산 데이터 분석</li>
+                    <li><strong>공간 데이터 분석:</strong> R의 <code>sf</code> 패키지 등을 활용하여 해역별 자원 공간 데이터를 조작하고 시각화</li>
+                    <li><strong>자원 평가:</strong> 역 연령-체장 키 산출 등을 통한 수산 자원 평가 및 관리 방안 연구</li>
+                </ul>
+            </div>
+
+            <!-- 두 번째 박스: Research 및 논문 -->
+            <div class="content-box">
+                <h3>🔬 Research & Projects</h3>
+                <h4 style="color: #2c3e50; font-size: 1.2em; line-height: 1.4;">Incorporation of spatio-temporal variability in Korean chub mackerel (Scomber japonicus) population to the stock assessment</h4>
+                <p>본 논문과 관련된 분석 데이터 및 소스 코드를 아래에서 확인할 수 있습니다.</p>
+                
+                <!-- 논문 관련 폴더 목록 -->
+                <ul class="folder-list">
+                    <li><a href="#">Data</a></li>
+                    <li><a href="#">GMM code</a></li>
+                    <li><a href="#">State-space age structure model</a></li>
+                </ul>
+            </div>
+
+        </main>
     </div>
+
 </body>
 </html>
